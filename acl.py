@@ -126,7 +126,7 @@ def side_diff_gen_acl(modemap, mode):
     else:
         mode = int(mode, 8)
         owner, group, acl = unix_to_acl(uid, gid, mode)
-        side_diff(modemap, mode, mode, modemap[i], mode)
+        side_diff(modemap, mode, mode, modemap[mode], acl)
 
 def side_diff(modemap, modea, modeb, a=None, b=None):
     if a is None:
