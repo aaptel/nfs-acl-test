@@ -625,7 +625,8 @@ def unix_to_acl(uid, gid, mode):
 
     # r bit
     if mode & 0o0400:
-        owner_allow |= perms_to_mask(['S', 'RD'])
+        owner_allow |= perms_to_mask(['RD'])
+        owner_allow |= perms_to_mask(['S']) # <==== wrong
     if mode & 0o0040:
         if not (mode&0o0400):
             owner_deny |= perms_to_mask(['S', 'RD'])
